@@ -8,14 +8,17 @@
   <style>
     :root{
       --primary:#1d4ed8;
-      --primary-dark:#172554;
+      --primary-dark:#0f172a;
+      --primary-soft:#e0ecff;
       --secondary:#0ea5e9;
-      --bg:#f4f7fb;
+      --accent:#10b981;
+      --danger:#ef4444;
+      --bg:#f5f8ff;
       --card:#ffffff;
       --text:#1f2937;
-      --muted:#6b7280;
-      --line:#dfe7f3;
-      --shadow:0 18px 40px rgba(15,23,42,.10);
+      --muted:#64748b;
+      --line:#dfe9f5;
+      --shadow:0 18px 45px rgba(15,23,42,.12);
     }
 
     *{box-sizing:border-box}
@@ -23,24 +26,26 @@
     body{
       margin:0;
       font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
-      background:linear-gradient(135deg,#eef4ff,#f7fafc);
+      background:
+        radial-gradient(circle at top left, rgba(29,78,216,.08), transparent 35%),
+        linear-gradient(180deg,#f5f8ff 0%, #eef5ff 100%);
       color:var(--text);
       line-height:1.7;
     }
-
     a{text-decoration:none}
     img{max-width:100%}
 
     .container{
-      width:min(1180px, calc(100% - 32px));
+      width:min(1200px, calc(100% - 32px));
       margin:0 auto;
     }
 
     .topbar{
-      background:#0b1120;
-      color:#eef8ff;
+      background:linear-gradient(90deg,#081120,#0d1830 45%,#101d36);
+      color:#edf6ff;
       padding:10px 0;
       font-size:.92rem;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
     .topbar .container{
@@ -52,12 +57,12 @@
     }
 
     .nav-wrap{
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(8px);
       position:sticky;
       top:0;
-      z-index:10;
-      border-bottom:1px solid rgba(148,163,184,.18);
+      z-index:50;
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(15,23,42,.06);
     }
 
     .nav{
@@ -71,7 +76,7 @@
 
     .brand{
       font-weight:900;
-      font-size:2rem;
+      font-size:clamp(1.6rem,2vw,2rem);
       color:var(--primary);
       letter-spacing:.5px;
     }
@@ -89,15 +94,13 @@
       transition:.2s ease;
     }
 
-    .nav-links a:hover{
-      color:var(--primary);
-    }
+    .nav-links a:hover{ color:var(--primary); }
 
     .nav-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:12px 20px;
+      padding:12px 22px;
       border-radius:999px;
       background:linear-gradient(135deg,var(--primary),var(--secondary));
       color:#fff !important;
@@ -106,20 +109,35 @@
     }
 
     .hero{
-      padding:70px 0 34px;
+      padding:72px 0 46px;
     }
 
     .hero-wrap{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:32px;
+      grid-template-columns:1.12fr .88fr;
+      gap:36px;
       align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(29,78,216,.08);
+      color:var(--primary);
+      border:1px solid rgba(29,78,216,.12);
+      border-radius:999px;
+      padding:8px 14px;
+      font-weight:700;
+      margin-bottom:18px;
+      font-size:.85rem;
     }
 
     .hero h1{
       margin:0 0 18px;
-      font-size:clamp(2.2rem,4vw,4rem);
+      font-size:clamp(2.4rem,4vw,4.2rem);
       line-height:1.12;
+      letter-spacing:-.03em;
       color:var(--primary-dark);
     }
 
@@ -127,13 +145,14 @@
       margin:0 0 26px;
       color:var(--muted);
       font-size:1.08rem;
-      max-width:620px;
+      max-width:650px;
     }
 
     .hero-actions{
       display:flex;
       gap:14px;
       flex-wrap:wrap;
+      margin-bottom:12px;
     }
 
     .btn{
@@ -146,65 +165,69 @@
       font-weight:700;
       transition:.2s ease;
       border:2px solid transparent;
+      font-size:.96rem;
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
-    }
+    .btn:hover{ transform:translateY(-2px); }
 
     .btn-primary{
       background:linear-gradient(135deg,var(--primary),var(--secondary));
       color:#fff;
-      box-shadow:0 12px 28px rgba(29,78,216,.25);
+      box-shadow:0 16px 26px rgba(29,78,216,.24);
     }
 
     .btn-secondary{
       background:#fff;
       border-color:var(--primary);
       color:var(--primary);
+      box-shadow:0 8px 20px rgba(15,23,42,.06);
     }
 
     .btn-whatsapp{
-      background:#25d366;
+      background:linear-gradient(135deg,#25d366,#1fbf5f);
       color:#fff !important;
-      box-shadow:0 12px 28px rgba(37,211,102,.25);
-    }
-
-    .btn-whatsapp:hover{
-      background:#20ba5a;
+      box-shadow:0 16px 28px rgba(37,211,102,.25);
     }
 
     .btn-call{
-      background:#ff6b6b;
+      background:linear-gradient(135deg,#ff7a59,#ff4d4d);
       color:#fff !important;
-      box-shadow:0 12px 28px rgba(255,107,107,.25);
-    }
-
-    .btn-call:hover{
-      background:#ff5252;
+      box-shadow:0 16px 28px rgba(255,107,107,.2);
     }
 
     .hero-card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:28px;
+      background:linear-gradient(180deg,#ffffff,#f8fbff);
+      border:1px solid rgba(148,163,184,.18);
+      border-radius:30px;
       box-shadow:var(--shadow);
       padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:-40% auto auto -20%;
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(29,78,216,.12), transparent 60%);
     }
 
     .mini-box{
-      background:linear-gradient(135deg,#edf6ff,#e0f2fe);
-      border:1px solid #dcecff;
+      position:relative;
+      background:linear-gradient(135deg,#edf5ff,#e9f5ff);
+      border:1px solid rgba(148,163,184,.2);
       border-radius:18px;
       padding:18px 20px;
-      margin-bottom:18px;
+      margin-bottom:16px;
     }
 
     .mini-box strong{
       display:block;
-      font-size:1.06rem;
-      color:var(--primary-dark);
       margin-bottom:6px;
+      font-size:1.04rem;
+      color:var(--primary-dark);
     }
 
     .mini-box span{
@@ -212,21 +235,36 @@
       font-size:.96rem;
     }
 
-    .section{
-      padding:54px 0;
+    .stat-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
     }
+
+    .stat-pill{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:700;
+      color:var(--primary-dark);
+      box-shadow:0 8px 18px rgba(15,23,42,.04);
+    }
+
+    .section{ padding:50px 0; }
 
     .section-title{
       text-align:center;
-      font-size:clamp(1.9rem,3vw,2.8rem);
+      font-size:clamp(1.9rem,3vw,2.7rem);
       color:var(--primary-dark);
-      margin:0 0 28px;
+      margin:0 0 30px;
     }
 
     .about-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:25px;
+      gap:24px;
     }
 
     .card{
@@ -239,8 +277,8 @@
 
     .card h3{
       margin:0 0 12px;
-      color:var(--primary-dark);
       font-size:1.5rem;
+      color:var(--primary-dark);
     }
 
     .card p{
@@ -257,7 +295,7 @@
     }
 
     .service-item{
-      background:var(--card);
+      background:linear-gradient(180deg,#ffffff,#f8fbff);
       border:1px solid var(--line);
       border-radius:22px;
       padding:24px 20px;
@@ -265,14 +303,16 @@
       transition:.2s ease;
     }
 
-    .service-item:hover{
-      transform:translateY(-4px);
-    }
+    .service-item:hover{ transform:translateY(-4px); }
 
     .service-icon{
-      width:56px;height:56px;border-radius:17px;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#dbeafe,#e0f2fe);
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#dfeeff,#edf6ff);
       font-size:1.7rem;
       margin-bottom:14px;
     }
@@ -280,7 +320,7 @@
     .service-item h4{
       margin:0 0 10px;
       color:var(--primary-dark);
-      font-size:1.2rem;
+      font-size:1.15rem;
     }
 
     .service-item p{
@@ -291,7 +331,7 @@
 
     .location-card{
       background:var(--card);
-      border:1px solid var(--line);
+      border:1px solid rgba(148,163,184,.18);
       border-radius:30px;
       overflow:hidden;
       box-shadow:var(--shadow);
@@ -299,7 +339,7 @@
 
     .location-wrap{
       display:grid;
-      grid-template-columns:1fr 1.1fr;
+      grid-template-columns:1fr 1.2fr;
       min-height:500px;
     }
 
@@ -317,7 +357,7 @@
     }
 
     .info-label{
-      font-size:.8rem;
+      font-size:.78rem;
       font-weight:800;
       letter-spacing:.08em;
       color:var(--primary);
@@ -341,7 +381,7 @@
 
     .map-actions .btn{
       padding:12px 18px;
-      font-size:.95rem;
+      font-size:.94rem;
     }
 
     .map-frame{
@@ -358,10 +398,10 @@
     }
 
     .contact-box{
-      background:linear-gradient(135deg,#1f2937,#111827);
+      background:linear-gradient(135deg,#111827,#1f2937);
       color:#fff;
       border-radius:26px;
-      padding:28px 30px;
+      padding:30px 28px;
       margin-top:32px;
       text-align:center;
       box-shadow:var(--shadow);
@@ -386,12 +426,12 @@
 
     .floating-buttons{
       position:fixed;
-      bottom:24px;
       right:24px;
+      bottom:22px;
       display:flex;
       flex-direction:column;
       gap:12px;
-      z-index:99;
+      z-index:100;
     }
 
     .float-btn{
@@ -401,31 +441,17 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:1.6rem;
-      border:none;
-      cursor:pointer;
-      box-shadow:0 8px 20px rgba(0,0,0,.2);
+      font-size:1.5rem;
+      color:#fff;
+      box-shadow:0 12px 24px rgba(0,0,0,.18);
       transition:.2s ease;
     }
 
-    .float-btn:hover{
-      transform:scale(1.1);
-    }
+    .float-btn:hover{ transform:translateY(-2px) scale(1.03); }
 
-    .float-whatsapp{
-      background:#25d366;
-      color:#fff;
-    }
-
-    .float-call{
-      background:#ff6b6b;
-      color:#fff;
-    }
-
-    .float-map{
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:#fff;
-    }
+    .float-whatsapp{ background:linear-gradient(135deg,#25d366,#1fbf5f); }
+    .float-call{ background:linear-gradient(135deg,#ff7a59,#ff4d4d); }
+    .float-map{ background:linear-gradient(135deg,#1d4ed8,#0ea5e9); }
 
     footer{
       background:#0b1120;
@@ -439,29 +465,22 @@
       .hero-wrap,
       .about-grid,
       .service-grid,
-      .location-wrap{
-        grid-template-columns:1fr;
-      }
-      .nav{
-        justify-content:center;
-      }
+      .location-wrap{ grid-template-columns:1fr; }
+      .nav{ justify-content:center; }
     }
 
-    @media (max-width: 600px){
-      .topbar .container{justify-content:center}
-      .nav-links{justify-content:center}
-      .hero{padding-top:48px}
-      .hero-actions,.map-actions{flex-direction:column}
-      .btn{width:100%}
-      .map-frame iframe{min-height:350px}
+    @media (max-width:600px){
+      .topbar .container{ justify-content:center; }
+      .nav-links{ justify-content:center; }
+      .hero{ padding-top:48px; }
+      .hero-actions, .map-actions{ flex-direction:column; }
+      .btn{ width:100%; }
+      .map-frame iframe{ min-height:350px; }
       .floating-buttons{
-        bottom:16px;
         right:16px;
+        bottom:16px;
       }
-      .float-btn{
-        width:50px;
-        height:50px;
-      }
+      .float-btn{ width:52px; height:52px; }
     }
   </style>
 </head>
@@ -478,7 +497,6 @@
     <div class="container">
       <nav class="nav">
         <div class="brand">Master Computer NKT</div>
-
         <div class="nav-links">
           <a href="#home">হোম</a>
           <a href="#about">আমাদের সম্পর্কে</a>
@@ -493,6 +511,7 @@
   <header class="hero" id="home">
     <div class="container hero-wrap">
       <div>
+        <div class="eyebrow">✔️ নির্ভরযোগ্য প্রযুক্তি সেবা</div>
         <h1>আপনার বিশ্বস্ত কম্পিউটার সেবা ও প্রযুক্তি ঠিকানা</h1>
         <p>
           Master Computer NKT-এ আপনি পাবেন নির্ভরযোগ্য কম্পিউটার সেবা, হার্ডওয়্যার মেরামত,
@@ -503,6 +522,12 @@
           <a class="btn btn-primary" href="#location">📍 আমাদের লোকেশন</a>
           <a class="btn btn-secondary" href="https://maps.app.goo.gl/zJs8w4YX3uAiQb729" target="_blank">🗺️ দিকনির্দেশনা</a>
           <a class="btn btn-whatsapp" href="https://wa.me/+880" target="_blank">💬 WhatsApp</a>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-pill">⚡ দ্রুত সেবা</div>
+          <div class="stat-pill">🛠️ নির্ভরযোগ্য সমাধান</div>
+          <div class="stat-pill">📍 স্থানীয় সহায়তা</div>
         </div>
       </div>
 
@@ -638,15 +663,14 @@
     © 2024 Master Computer NKT • সর্বস্বত্ব সংরক্ষিত
   </footer>
 
-  <!-- Floating Action Buttons -->
   <div class="floating-buttons">
-    <a href="https://wa.me/+880" target="_blank" class="float-btn float-whatsapp" title="WhatsApp এ যোগাযোগ করুন">
+    <a href="https://wa.me/+880" target="_blank" class="float-btn float-whatsapp" title="WhatsApp">
       💬
     </a>
-    <a href="tel:+880000000000" class="float-btn float-call" title="কল করুন">
+    <a href="tel:+880000000000" class="float-btn float-call" title="Call">
       📞
     </a>
-    <a href="https://maps.app.goo.gl/zJs8w4YX3uAiQb729" target="_blank" class="float-btn float-map" title="আমাদের অবস্থান দেখুন">
+    <a href="https://maps.app.goo.gl/zJs8w4YX3uAiQb729" target="_blank" class="float-btn float-map" title="Location">
       🗺️
     </a>
   </div>
