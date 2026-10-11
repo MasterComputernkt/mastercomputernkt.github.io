@@ -19,6 +19,11 @@
       --muted:#64748b;
       --line:#dfe9f5;
       --shadow:0 18px 45px rgba(15,23,42,.12);
+      --gold-1:#f3d18b;
+      --gold-2:#c89242;
+      --gold-3:#8d5f2b;
+      --seal-dark:#2e3440;
+      --seal-mid:#4b5563;
     }
 
     *{box-sizing:border-box}
@@ -193,6 +198,25 @@
       background:linear-gradient(135deg,#ff7a59,#ff4d4d);
       color:#fff !important;
       box-shadow:0 16px 28px rgba(255,107,107,.2);
+    }
+
+    .logo-hero{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:24px;
+    }
+
+    .seal-wrap{
+      width:min(92vw, 640px);
+      height:auto;
+      filter: drop-shadow(0 24px 28px rgba(0,0,0,.28));
+    }
+
+    .seal-wrap svg {
+      width:100%;
+      height:auto;
+      display:block;
     }
 
     .hero-card{
@@ -512,6 +536,101 @@
     <div class="container hero-wrap">
       <div>
         <div class="eyebrow">✔️ নির্ভরযোগ্য প্রযুক্তি সেবা</div>
+
+        <div class="logo-hero" aria-label="Master Telecom logo">
+          <div class="seal-wrap">
+            <svg viewBox="0 0 760 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Master Telecom emblem">
+              <defs>
+                <linearGradient id="goldStroke" x1="0%" x2="100%" y1="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f8e2a4"/>
+                  <stop offset="16%" stop-color="#d7a95a"/>
+                  <stop offset="33%" stop-color="#f8e7bf"/>
+                  <stop offset="50%" stop-color="#c2872d"/>
+                  <stop offset="67%" stop-color="#fce9ba"/>
+                  <stop offset="82%" stop-color="#b8772d"/>
+                  <stop offset="100%" stop-color="#f4d491"/>
+                </linearGradient>
+                <linearGradient id="goldFill" x1="0%" x2="100%" y1="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f8d98a"/>
+                  <stop offset="18%" stop-color="#d3a15d"/>
+                  <stop offset="52%" stop-color="#f8df9d"/>
+                  <stop offset="68%" stop-color="#b88035"/>
+                  <stop offset="100%" stop-color="#f2c96e"/>
+                </linearGradient>
+                <radialGradient id="sealBg" cx="50%" cy="42%" r="60%">
+                  <stop offset="0%" stop-color="#4d586a"/>
+                  <stop offset="62%" stop-color="#2d3640"/>
+                  <stop offset="100%" stop-color="#111922"/>
+                </radialGradient>
+              </defs>
+
+              <circle cx="380" cy="380" r="310" fill="url(#sealBg)" stroke="url(#goldStroke)" stroke-width="32"/>
+              <circle cx="380" cy="380" r="270" fill="none" stroke="url(#goldStroke)" stroke-width="3" opacity="0.5"/>
+
+              <g opacity="0.9" stroke="url(#goldStroke)" fill="none" stroke-width="2.7">
+                <ellipse cx="380" cy="380" rx="188" ry="112"/>
+                <ellipse cx="380" cy="380" rx="188" ry="152"/>
+                <ellipse cx="380" cy="380" rx="112" ry="188"/>
+                <ellipse cx="380" cy="380" rx="152" ry="188"/>
+                <path d="M380 194 L380 566"/>
+                <path d="M210 380 L550 380"/>
+                <path d="M260 237 L500 523"/>
+                <path d="M500 237 L260 523"/>
+              </g>
+
+              <g fill="none" stroke="url(#goldStroke)" stroke-width="2.4" opacity="0.8">
+                <circle cx="380" cy="380" r="95"/>
+                <circle cx="380" cy="380" r="145"/>
+              </g>
+
+              <g fill="url(#goldFill)">
+                <circle cx="380" cy="380" r="4.5"/>
+                <circle cx="380" cy="240" r="4.5"/>
+                <circle cx="380" cy="520" r="4.5"/>
+                <circle cx="240" cy="380" r="4.5"/>
+                <circle cx="520" cy="380" r="4.5"/>
+                <circle cx="272" cy="263" r="4.5"/>
+                <circle cx="488" cy="263" r="4.5"/>
+                <circle cx="272" cy="497" r="4.5"/>
+                <circle cx="488" cy="497" r="4.5"/>
+              </g>
+
+              <path d="M210 470 C260 490, 315 510, 355 530 C385 545, 420 548, 455 531 C495 512, 530 487, 560 474 L530 397 L478 323 C470 300, 448 285, 424 283 L423 285 C413 271, 396 262, 375 262 C350 262, 334 274, 323 294 L274 390 L223 470 Z" fill="url(#goldFill)" stroke="#d9b15f" stroke-width="3"/>
+
+              <path d="M290 455 C332 420, 351 392, 360 362 C360 344, 342 328, 323 332 C303 336, 285 359, 275 383 L250 449 L290 455 Z" fill="url(#goldFill)" stroke="#d9b15f" stroke-width="2"/>
+              <path d="M468 417 C495 411, 521 396, 540 374 C560 352, 577 332, 594 314 C608 298, 610 284, 598 277 C585 270, 571 283, 561 303 C543 337, 520 359, 485 382 L468 417 Z" fill="url(#goldFill)" stroke="#d9b15f" stroke-width="2"/>
+
+              <path d="M384 168 C430 190, 476 202, 512 245 C560 254, 574 278, 589 295 C598 323, 584 339, 549 340 C509 341, 467 311, 431 296 C400 282, 378 282, 354 303 C330 323, 314 350, 286 359 C250 370, 236 352, 242 325 C255 284, 298 218, 384 168 Z" fill="url(#goldFill)" opacity="0.9"/>
+
+              <path d="M310 482 C270 422, 254 356, 258 308 C248 315, 232 325, 217 336 C190 358, 171 384, 162 415 C154 445, 159 475, 175 495 C204 524, 250 514, 310 482 Z" fill="url(#goldFill)" opacity="0.88"/>
+
+              <path d="M255 410 C335 330, 388 284, 425 233" fill="none" stroke="#d9b15f" stroke-width="5" stroke-linecap="round"/>
+
+              <path d="M536 286 C596 310, 627 346, 636 388 C610 380, 593 369, 579 355 C556 332, 544 305, 536 286 Z" fill="url(#goldFill)" opacity="0.92"/>
+
+              <path d="M405 513 C425 470, 441 440, 454 404 C474 429, 495 462, 522 496 C544 521, 557 533, 560 552 C500 560, 450 548, 405 513 Z" fill="url(#goldFill)" opacity="0.9"/>
+
+              <path d="M240 472 C304 422, 339 394, 384 348 C412 393, 418 424, 421 470 C369 498, 310 510, 240 472 Z" fill="url(#goldFill)" opacity="0.95"/>
+
+              <path d="M305 435 C360 375, 378 349, 406 298" fill="none" stroke="#d5a757" stroke-width="3" opacity="0.8"/>
+              <path d="M318 522 C328 548, 344 568, 362 588 C378 603, 393 612, 400 615 C416 612, 432 597, 447 579 C467 556, 480 526, 494 498" fill="none" stroke="#d5a757" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+
+              <text x="380" y="650" text-anchor="middle" font-size="69" font-weight="800" letter-spacing="4" fill="url(#goldFill)" font-family="Georgia, 'Times New Roman', serif">MASTER TELECOM</text>
+              <text x="380" y="700" text-anchor="middle" font-size="17" font-weight="700" letter-spacing="3" fill="#f9e0a7" font-family="Arial, sans-serif">MOBILE COMPUTER TRAINING CENTER</text>
+
+              <g>
+                <path d="M175 615 C210 580, 245 560, 300 550 C268 590, 238 606, 175 615 Z" fill="url(#goldFill)" opacity="0.95"/>
+                <path d="M585 615 C550 580, 515 560, 460 550 C492 590, 522 606, 585 615 Z" fill="url(#goldFill)" opacity="0.95"/>
+              </g>
+
+              <g>
+                <rect x="225" y="623" width="310" height="54" rx="27" fill="url(#goldFill)" stroke="#c88a3a" stroke-width="4"/>
+                <text x="380" y="660" text-anchor="middle" font-size="31" font-weight="700" fill="#1f2430" font-style="italic" font-family="Georgia, 'Times New Roman', serif">Since 2006</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
         <h1>আপনার বিশ্বস্ত কম্পিউটার সেবা ও প্রযুক্তি ঠিকানা</h1>
         <p>
           Master Computer NKT-এ আপনি পাবেন নির্ভরযোগ্য কম্পিউটার সেবা, হার্ডওয়্যার মেরামত,
